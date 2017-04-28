@@ -18,6 +18,7 @@ int main()
     int AuxEstado;
     int AuxEdad;
     int AuxDni;
+    int flagBandera=0;
 
 
     int IndLugarLibre;
@@ -95,6 +96,8 @@ int main()
                 lista[IndLugarLibre].dni = AuxDni;
                 lista[IndLugarLibre].estado = AuxEstado;
 
+                flagBandera++;
+
 
 
 
@@ -103,24 +106,37 @@ int main()
 
                 system("cls");
 
-                printf ("BAJA\n\n");
-
-                if(!getStringNumeros("Ingrese el documento a dar de baja\n",AuxiliarDni))
+                if(flagBandera>0)
                 {
-                    printf("El Documento tiene que ser numerico\n");
-                    break;
+
+
+                        printf ("BAJA\n\n");
+
+                            if(!getStringNumeros("Ingrese el documento a dar de baja\n",AuxiliarDni))
+                            {
+                                    printf("El Documento tiene que ser numerico\n");
+                                    break;
+                            }
+
+                        IndBusqueda = buscarPorDni(lista,CANTIDADPERSONAS,atoi(AuxiliarDni));
+
+                            if(IndBusqueda==-1)
+                            {
+                                printf("No se encuentra ese documento\n");
+                                break;
+                            }
+                            lista[IndBusqueda].dni=-1;
+                            printf("El usuario fue dado de baja con exito\n");
+                            flagBandera--;
+                            break;
+
+
+
                 }
 
-                IndBusqueda = buscarPorDni(lista,CANTIDADPERSONAS,atoi(AuxiliarDni));
+                printf("NO EXISTE NINGUN USUARIO INGRESADO\n");
 
-                if(IndBusqueda==-1)
-                {
-                    printf("No se encuentra ese documento\n");
-                    break;
-                }
-                lista[IndBusqueda].dni=-1;
-                printf("El usuario fue dado de baja con exito\n");
-                break;
+
 
 
                 break;
@@ -128,41 +144,57 @@ int main()
 
                 system("cls");
 
-
-
-                for(i=0;i<CANTIDADPERSONAS;i++)
+                if(flagBandera>0)
                 {
-                   if(lista[i].dni == -1)
-                   {
-                       continue;
-                   }
-                   for(j=i+1; j<CANTIDADPERSONAS;j++)
-                   {
-                       if(lista[j].dni == -1)
-                       {
-                           continue;
-                       }
-                       if(strcmp(lista[i].nombre,lista[j].nombre) > 0)
-                       {
-                           auxPer = lista[j];
-                           lista[j] = lista [i];
-                           lista[i] = auxPer;
-                       }
-                   }
+                        for(i=0;i<CANTIDADPERSONAS;i++)
+                          {
+                           if(lista[i].dni == -1)
+                           {
+                               continue;
+                           }
+                           for(j=i+1; j<CANTIDADPERSONAS;j++)
+                           {
+                               if(lista[j].dni == -1)
+                               {
+                                   continue;
+                               }
+                               if(strcmp(lista[i].nombre,lista[j].nombre) > 0)
+                               {
+                                   auxPer = lista[j];
+                                   lista[j] = lista [i];
+                                   lista[i] = auxPer;
+                               }
+                           }
+                        }
+
+
+                        for(i=0;i<CANTIDADPERSONAS;i++)
+                        {
+                            if(lista[i].dni != -1)
+                            {
+                               printf("\n%s - %d - %d\n",lista[i].nombre,lista[i].dni,lista[i].edad);
+                            }
+                        }
+
+
+
+                        printf ("ORDENADO EL LISTADO POR NOMBRES\n\n");
+
+
+
+
+
+
+
+
                 }
 
-
-                for(i=0;i<CANTIDADPERSONAS;i++)
-                {
-                    if(lista[i].dni != -1)
-                    {
-                       printf("\n%s - %d - %d\n",lista[i].nombre,lista[i].dni,lista[i].edad);
-                    }
-                }
+                 else
+                 {
+                    printf("NO EXISTE NINGUN USUARIO INGRESADO\n");
+                 }
 
 
-
-                printf ("ORDENADO EL LISTADO POR NOMBRES\n\n");
 
                 break;
             case 4:
@@ -170,36 +202,50 @@ int main()
                 system("cls");
 
 
-                for(i=0;i<CANTIDADPERSONAS;i++)
+                if(flagBandera>0)
                 {
-                    if(lista[i].dni != -1)
-                    {
-                        if(lista[i].edad<18)
+                       for(i=0;i<CANTIDADPERSONAS;i++)
                         {
+                            if(lista[i].dni != -1)
+                            {
+                                if(lista[i].edad<18)
+                                {
 
-                            printf("\t * \t  \t\n ");
+                                    printf("\t * \t  \t\n ");
+                                }
+                                if(lista[i].edad>=19 && lista[i].edad<=35)
+                                {
+
+                                    printf("\t \t* \t\n ");
+                                }
+
+                                if(lista[i].edad>35)
+                                {
+
+                                    printf("\t \t\t*\n ");
+                                }
+
+
+                            }
+
+
                         }
-                        if(lista[i].edad>=19 && lista[i].edad<=35)
-                        {
-
-                            printf("\t \t* \t\n ");
-                        }
-
-                        if(lista[i].edad>35)
-                        {
-
-                            printf("\t \t\t*\n ");
-                        }
+                        printf("\t<18   19-35    >35\n");
+                        printf("GRAFICO REPRESENTANDO PERSONAS CON ASTERISCO\n\n");
 
 
-                    }
+
+
 
 
                 }
-                printf("\t<18   19-35    >35\n");
-                printf("GRAFICO REPRESENTANDO PERSONAS CON ASTERISCO\n\n");
 
 
+
+                else
+                {
+                    printf("NO EXISTE NINGUN USUARIO INGRESADO\n");
+                }
 
 
 
@@ -207,6 +253,11 @@ int main()
             case 5:
                 seguir = 'n';
                 break;
+            default:
+            system("cls");
+            printf("POR FAVOR INGRESE UNA OPCION VALIDA\n");
+                break;
+
         }
     }
 
