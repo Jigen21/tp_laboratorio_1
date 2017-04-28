@@ -55,27 +55,29 @@ int main()
                 if(IndLugarLibre==-1)
                 {
                     printf("NO QUEDAN LUGARES\n\n");
+                    break;
                 }
 
                 printf ("ALTA\n\n");
 
-                if(!getStringLetras("Ingrese el nombre\n",AuxNombre))
+
+                while(!getStringLetras("Ingrese el nombre\n",AuxNombre))
                 {
                     printf("El nombre debe estar compuesto solo por letras\n");
-                    break;
+
                 }
 
-                if(!getStringNumeros("Ingrese el documento\n",AuxiliarDni))
+                while(!getStringNumeros("Ingrese el documento\n",AuxiliarDni))
                 {
                    printf("el documento debe estar compuesto solo por numeros\n");
-                   break;
+
                 }
 
-                if(!getStringNumeros("Ingrese su edad\n",AuxiliarEdad))
+                while(!getStringNumeros("Ingrese su edad\n",AuxiliarEdad))
                 {
 
                    printf("la edad debe estar compuesta solo por numeros\n");
-                   break;
+
                 }
 
                 AuxDni = atoi(AuxiliarDni);
@@ -175,18 +177,18 @@ int main()
                         if(lista[i].edad<18)
                         {
 
-                            printf(" *\t \t \n ");
+                            printf("\t * \t  \t\n ");
                         }
                         if(lista[i].edad>=19 && lista[i].edad<=35)
                         {
 
-                            printf("\t * \t \n ");
+                            printf("\t \t* \t\n ");
                         }
 
                         if(lista[i].edad>35)
                         {
 
-                            printf("\t \t *\n ");
+                            printf("\t \t\t*\n ");
                         }
 
 
@@ -194,7 +196,7 @@ int main()
 
 
                 }
-                printf("<18   19-35   >35\n");
+                printf("\t<18   19-35    >35\n");
                 printf("GRAFICO REPRESENTANDO PERSONAS CON ASTERISCO\n\n");
 
 
