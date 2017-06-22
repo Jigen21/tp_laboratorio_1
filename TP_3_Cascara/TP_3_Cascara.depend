@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1496689843 source:c:\users\axelh21\desktop\probandotp3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1496683873 c:\users\axelh21\desktop\probandotp3\tp_3_cascara\funciones.h
+
+1496691816 source:c:\users\axelh21\desktop\probandotp3\tp_3_cascara\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1496689843 source:c:\users\axelh21\desktop\bakup probando tp 3\probandotp3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1496683873 c:\users\axelh21\desktop\bakup probando tp 3\probandotp3\tp_3_cascara\funciones.h
+
+1496770278 source:c:\users\axelh21\desktop\bakup probando tp 3\probandotp3\tp_3_cascara\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1496770280 source:c:\users\axelh21\desktop\21 de junio del 18\bakup probando tp 3\probandotp3\tp_3_cascara\funciones.c
+	"funciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1496683874 c:\users\axelh21\desktop\21 de junio del 18\bakup probando tp 3\probandotp3\tp_3_cascara\funciones.h
+
+1496689844 source:c:\users\axelh21\desktop\21 de junio del 18\bakup probando tp 3\probandotp3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
